@@ -49,7 +49,7 @@ export function Select({
   const selected = options.find((o) => o.value === value);
 
   return (
-    <div ref={ref} className={cn("relative", className)}>
+    <div ref={ref} className={cn("relative", open && "z-20", className)}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}

@@ -64,7 +64,7 @@ export function DateRangePicker({
     : "Pick event dates";
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className={cn("relative", open && "z-20")}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
