@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-gradient-to-b from-amber-300 to-amber-500 text-zinc-950 shadow-[0_8px_24px_-8px_rgba(251,191,36,0.5)] hover:from-amber-200 hover:to-amber-400 active:scale-[0.98]",
+          "btn-glow bg-gradient-to-b from-amber-300 to-amber-500 text-zinc-950 hover:from-amber-200 hover:to-amber-400 active:scale-[0.98]",
         secondary:
           "bg-white/[0.06] text-zinc-100 border border-white/10 hover:bg-white/[0.1] active:scale-[0.98]",
         ghost: "text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.06]",

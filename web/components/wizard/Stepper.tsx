@@ -31,7 +31,7 @@ export function Stepper({ steps, current }: StepperProps) {
               </span>
               <span
                 className={cn(
-                  "hidden text-[13px] font-medium whitespace-nowrap sm:block",
+                  "micro hidden whitespace-nowrap sm:block",
                   active
                     ? "text-zinc-100"
                     : done

@@ -22,7 +22,7 @@ export function Field({
   className,
 }: FieldProps) {
   return (
-    <div className={cn("space-y-2", className)}>
+    <div className={cn("spot-field space-y-2", className)}>
       <Label>
         {label}
         {optional && (

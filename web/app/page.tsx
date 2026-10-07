@@ -130,7 +130,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-clip">
+    <div className="grain relative min-h-screen overflow-x-clip">
       {/* Backdrop */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-40 left-1/2 h-[480px] w-[820px] -translate-x-1/2 rounded-full bg-amber-500/[0.07] blur-[120px]" />
@@ -150,69 +150,75 @@ export default function Home() {
       </div>
 
       <div className="relative mx-auto max-w-3xl px-4 pb-20 sm:px-6">
-        {/* Header */}
-        <header className="flex items-center justify-between py-6">
-          <div className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-b from-amber-300 to-amber-500 text-zinc-950 shadow-[0_8px_24px_-8px_rgba(251,191,36,0.6)]">
-              <Sparkles className="size-4" />
-            </span>
-            <span className="font-display text-lg font-bold tracking-tight">
-              GoPratle
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span
-              className={cn(
-                "inline-flex items-center gap-1.5 text-xs",
-                apiLive === null
-                  ? "text-zinc-600"
-                  : apiLive
-                    ? "text-emerald-400"
-                    : "text-amber-400"
-              )}
-              title={
-                apiLive === false
-                  ? "Backend not reachable — start the API on :4000"
-                  : "Backend status"
-              }
-            >
+        {/* Floating pill header */}
+        <div className="sticky top-4 z-40 pt-2">
+          <header className="flex items-center justify-between rounded-full border border-white/[0.08] bg-zinc-950/70 py-2.5 pl-4 pr-3 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+            <div className="flex items-center gap-2.5">
+              <span className="flex size-8 items-center justify-center rounded-full bg-gradient-to-b from-amber-300 to-amber-500 text-zinc-950 shadow-[0_0_20px_-2px_rgba(251,191,36,0.7)]">
+                <Sparkles className="size-4" />
+              </span>
+              <span className="font-display text-[17px] font-bold tracking-tight">
+                GoPratle
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
               <span
                 className={cn(
-                  "size-1.5 rounded-full",
+                  "micro inline-flex items-center gap-1.5",
                   apiLive === null
-                    ? "bg-zinc-600"
+                    ? "text-zinc-600"
                     : apiLive
-                      ? "bg-emerald-400 animate-pulse"
-                      : "bg-amber-400"
+                      ? "text-emerald-400"
+                      : "text-amber-400"
                 )}
-              />
-              {apiLive === null
-                ? "Checking API..."
-                : apiLive
-                  ? "API live"
-                  : "API offline"}
-            </span>
-            <Badge>For hosts</Badge>
-          </div>
-        </header>
+                title={
+                  apiLive === false
+                    ? "Backend not reachable — start the API on :4000"
+                    : "Backend status"
+                }
+              >
+                <span
+                  className={cn(
+                    "size-1.5 rounded-full",
+                    apiLive === null
+                      ? "bg-zinc-600"
+                      : apiLive
+                        ? "bg-emerald-400 animate-pulse"
+                        : "bg-amber-400"
+                  )}
+                />
+                {apiLive === null
+                  ? "Checking API..."
+                  : apiLive
+                    ? "API live"
+                    : "API offline"}
+              </span>
+              <Badge>For hosts</Badge>
+            </div>
+          </header>
+        </div>
 
         {!result && (
-          <div className="mt-6 text-center sm:mt-10">
-            <h1 className="font-display text-3xl font-bold tracking-tight text-zinc-50 sm:text-[2.75rem] sm:leading-[1.1]">
+          <div className="mt-10 text-center sm:mt-14">
+            <span className="micro inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/[0.08] px-4 py-1.5 text-amber-300">
+              <span className="size-1 rounded-full bg-amber-400 animate-pulse" />
+              Post a requirement — free
+            </span>
+            <h1 className="font-display mt-5 text-[2.6rem] font-bold leading-[1.02] tracking-[-0.03em] text-zinc-50 sm:text-6xl">
               Tell us about your event.
               <span className="block bg-gradient-to-r from-amber-200 via-amber-400 to-orange-400 bg-clip-text text-transparent">
                 We will handle the rest.
               </span>
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-zinc-500">
-              Post one requirement and get matched with verified planners,
-              performers and crew. Free to post, quotes within 24 hours.
+            <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-zinc-500">
+              One requirement, matched with verified planners, performers
+              and crew. Quotes within 24 hours.
             </p>
           </div>
         )}
 
         {/* Wizard card */}
-        <Card className="mt-8 sm:mt-10">
+        <Card className="spotlight-zone mt-10 sm:mt-12">
           <CardContent className="p-6 sm:p-8">
             {result ? (
               <SuccessScreen
